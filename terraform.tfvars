@@ -8,5 +8,6 @@ sql_admin_login         = "missadministrator"
 sql_admin_password      = "thisIsKat11"
 firewall_rule_name      = "FirewallRule1"
 repo_url                = "https://github.com/DKichukov/TaskBoardApp"
-storage_account_name    = "taskboardstorage-19999"
+storage_account_name    = "taskboardstorage19999"
 storage_container_name  = "vhds"
+    
