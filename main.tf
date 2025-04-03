@@ -6,12 +6,12 @@ terraform {
     }
   }
   #use this if you want to use remote state storage in Azure
-  #    backend "azurerm" {
-  #     resource_group_name  = "TaskBoardRG"          
-  #     storage_account_name = "taskboardstorage"     
-  #     container_name       = "vhds"                 
-  #     key                  = "terraform.tfstate"
-  #   }
+     backend "azurerm" {
+      resource_group_name  = "TaskBoardRG"          
+      storage_account_name = "taskboardstorage19999"     
+      container_name       = "vhds"                 
+      key                  = "terraform.tfstate"
+    }
 }
 
 provider "azurerm" {
@@ -91,16 +91,16 @@ resource "azurerm_app_service_source_control" "github" {
   use_manual_integration = true
 }
 
-resource "azurerm_storage_account" "backend_sa" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.arg.name
-  location                 = azurerm_resource_group.arg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
+# resource "azurerm_storage_account" "backend_sa" {
+#   name                     = var.storage_account_name
+#   resource_group_name      = azurerm_resource_group.arg.name
+#   location                 = azurerm_resource_group.arg.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+# }
 
-resource "azurerm_storage_container" "backend_container" {
-  name                  = var.storage_container_name
-  storage_account_id    = azurerm_storage_account.backend_sa.id
-  container_access_type = "private"
-}
+# resource "azurerm_storage_container" "backend_container" {
+#   name                  = var.storage_container_name
+#   storage_account_id    = azurerm_storage_account.backend_sa.id
+#   container_access_type = "private"
+# }
