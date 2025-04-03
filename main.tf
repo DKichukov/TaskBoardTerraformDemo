@@ -5,11 +5,11 @@ terraform {
       version = "4.24.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name     = var.resource_group_name
-    resource_account_name   = var.storage_account_name
-    resource_container_name = var.storage_container_name
-    key                     = "terraform.tfstate"
+   backend "azurerm" {
+    resource_group_name  = "TaskBoardRG"          
+    storage_account_name = "taskboardstorage"     
+    container_name       = "vhds"                 
+    key                  = "terraform.tfstate"
   }
 
 
