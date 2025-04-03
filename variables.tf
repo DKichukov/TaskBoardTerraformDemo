@@ -48,3 +48,13 @@ variable "repo_url" {
   type        = string
   description = "The location of the GitHub repo."
 }
+
+variable "storage_account_name" {
+  type        = string
+  description = "The name of the storage account."
+}
+
+variable "storage_container_name" {
+  type        = string
+  description = "The name of the storage container."
+}

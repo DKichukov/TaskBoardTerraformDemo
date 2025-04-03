@@ -5,6 +5,14 @@ terraform {
       version = "4.24.0"
     }
   }
+ backend "azurerm" {
+   resource_group_name = var.resource_group_name
+   resource_account_name = var.storage_account_name
+   resource_container_name = var.storage_container_name
+   key = "terraform.tfstate"
+ }
+ 
+  
 }
 
 provider "azurerm" {
@@ -82,4 +90,18 @@ resource "azurerm_app_service_source_control" "github" {
   repo_url               = var.repo_url
   branch                 = "main"
   use_manual_integration = true
+}
+
+resource "azurerm_storage_account" "asa" {
+  name                     = "${var.storage_account_name}-${random_integer.random.result}"
+  resource_group_name      = azurerm_resource_group.arg.name
+  location                 = azurerm_resource_group.arg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_storage_container" "asc" {
+  name                  = "${var.storage_container_name}-${random_integer.random.result}"
+  storage_account_id    = azurerm_storage_account.asa.id
+  container_access_type = "private"
 }
