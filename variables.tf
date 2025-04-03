@@ -49,12 +49,6 @@ variable "repo_url" {
   description = "The location of the GitHub repo."
 }
 
-variable "resource_group_backend_name" {
-  type        = string
-  description = "The name of the backend resource group."
-}
-
-
 variable "storage_account_name" {
   type        = string
   description = "The name of the storage account."
