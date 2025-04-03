@@ -11,8 +11,6 @@ terraform {
     container_name       = "vhds"                 
     key                  = "terraform.tfstate"
   }
-
-
 }
 
 provider "azurerm" {
