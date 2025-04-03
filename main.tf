@@ -6,12 +6,12 @@ terraform {
     }
   }
   #use this if you want to use remote state storage in Azure
-     backend "azurerm" {
-      resource_group_name  = "TaskBoardRG-94008"          
-      storage_account_name = "taskboardstorage19999"     
-      container_name       = "vhds"                 
-      key                  = "terraform.tfstate"
-    }
+  backend "azurerm" {
+    resource_group_name  = "TaskBoardRG-94008"
+    storage_account_name = "taskboardstorage19999"
+    container_name       = "vhds"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
